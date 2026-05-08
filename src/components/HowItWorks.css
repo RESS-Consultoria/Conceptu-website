@@ -1,0 +1,165 @@
+.how__eyebrow {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--cyan-dark);
+  margin-bottom: 12px;
+}
+
+.how__steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: 64px;
+  position: relative;
+}
+
+.how__step {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 24px;
+  align-items: flex-start;
+  padding: 40px 0;
+  position: relative;
+}
+
+.how__step:not(:last-child) {
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.how__step-icon {
+  width: 64px;
+  height: 64px;
+  background: var(--navy);
+  color: var(--cyan);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+.how__step-body {
+  flex: 1;
+}
+
+.how__step-number {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--cyan-dark);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.how__step-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 10px;
+}
+
+.how__step-desc {
+  font-size: 15px;
+  color: var(--gray-600);
+  line-height: 1.7;
+  max-width: 600px;
+}
+
+.how__connector {
+  display: none;
+}
+
+.how__formats {
+  background: var(--navy);
+  border-radius: var(--radius-lg);
+  padding: 48px;
+}
+
+.how__formats-title {
+  color: var(--white);
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 28px;
+}
+
+.how__formats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.how__format-card {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transition: background 0.2s;
+}
+
+.how__format-card:hover {
+  background: rgba(0, 196, 212, 0.1);
+  border-color: rgba(0, 196, 212, 0.3);
+}
+
+.how__format-card strong {
+  color: var(--white);
+  font-size: 15px;
+}
+
+.how__format-card span {
+  color: rgba(255,255,255,0.55);
+  font-size: 13px;
+}
+
+.how__modality {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255,255,255,0.6);
+  font-size: 14px;
+}
+
+.how__modality svg {
+  color: var(--cyan);
+  flex-shrink: 0;
+}
+
+.how__modality strong {
+  color: var(--white);
+}
+
+@media (max-width: 768px) {
+  .how__formats {
+    padding: 32px 24px;
+  }
+
+  .how__formats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .how__step {
+    grid-template-columns: 48px 1fr;
+    gap: 16px;
+    padding: 28px 0;
+  }
+
+  .how__step-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .how__formats-grid {
+    grid-template-columns: 1fr;
+  }
+}
