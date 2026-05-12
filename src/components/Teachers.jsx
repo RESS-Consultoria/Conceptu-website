@@ -3,50 +3,43 @@ import './Teachers.css'
 const teachers = [
   {
     name: 'Antonio Netto',
-    initials: 'AN',
-    color: '#1a4f8a',
+    photo: '/teachers/antonio-netto.png',
     role: 'Licitações Públicas & IA',
     bio: 'Professor e palestrante em Licitações Públicas, CPSI, IA, Segurança da Informação, Tecnologia, Transformação Digital e Pagamentos Digitais.',
   },
   {
     name: 'Silvio Lima',
-    initials: 'SL',
-    color: '#0B2545',
+    photo: '/teachers/silvio-lima.png',
     role: 'Tecnologia & Gestão de Riscos',
     bio: 'Coordenador-Geral de Contratações de TIC da Central de Compras do Ministério da Economia. Especialista em Tecnologia e Gestão de Riscos.',
   },
   {
     name: 'José Guidi',
-    initials: 'JG',
-    color: '#2d5016',
+    photo: '/teachers/jose-guidi.png',
     role: 'Contratos de Obras Públicas',
     bio: 'Engenheiro Consultor, Mestre em Administração Pública. Especialista em Contratos de Obras Públicas.',
   },
   {
     name: 'Camilo Mussi',
-    initials: 'CM',
-    color: '#4a1a6e',
+    photo: '/teachers/camilo-mussi.png',
     role: 'Transformação Digital & Liderança',
     bio: 'Líder em Transformação Digital no Setor Público. CIO, palestrante e professor. Mestre em IA, subsecretário de TI com expertise em Segurança da Informação.',
   },
   {
     name: 'Erick Muzart',
-    initials: 'EM',
-    color: '#6b2020',
+    photo: '/teachers/erick-muzart.png',
     role: 'Machine Learning & Dados',
     bio: 'Auditor Federal de Controle Externo do TCU. Coordenador do Programa de Capacitação em Análise de Dados do ISC/TCU.',
   },
   {
     name: 'Rafael Cavalcante',
-    initials: 'RC',
-    color: '#1a5a5a',
+    photo: '/teachers/rafael-cavalcante.png',
     role: 'Controle Externo & Fiscalização',
     bio: 'Auditor Federal de Controle Externo e dirigente do TCU. Ex-secretário de Controle Externo do Sistema Financeiro Nacional do TCU.',
   },
   {
     name: 'Dr. Paulo Miranda',
-    initials: 'PM',
-    color: '#3d3000',
+    photo: '/teachers/paulo-miranda.png',
     role: 'Saúde & IA',
     bio: 'Médico, Diretor executivo do HUB H2O e professor do MBA Health 4.0 (BBI of Chicago). Formação em gestão de negócios e gestão de TI.',
   },
@@ -68,8 +61,8 @@ export default function Teachers() {
         <div className="teachers__grid">
           {teachers.map((t, i) => (
             <div key={i} className="teacher-card">
-              <div className="teacher-card__avatar" style={{ background: t.color }}>
-                {t.initials}
+              <div className="teacher-card__avatar">
+                <img src={t.photo} alt={t.name} className="teacher-card__photo" />
               </div>
               <div className="teacher-card__body">
                 <h3 className="teacher-card__name">{t.name}</h3>

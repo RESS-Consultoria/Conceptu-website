@@ -1,12 +1,13 @@
+import { useState } from 'react'
 import './Clients.css'
 
 const clients = [
-  { name: 'Poder Judiciário', sub: 'Estado do Tocantins' },
-  { name: 'STF', sub: 'Supremo Tribunal Federal' },
-  { name: 'Banco Mundial', sub: 'BIRF · AIF' },
-  { name: 'FAPDF', sub: 'Fundação de Apoio à Pesquisa' },
-  { name: 'Justiça do Trabalho', sub: 'TRT da 16ª Região — MA' },
-  { name: 'ADAPEC', sub: 'Tocantins' },
+  { name: 'STF', logo: '/clients/stf.png' },
+  { name: 'Banco Mundial', logo: '/clients/banco-mundial.png' },
+  { name: 'Poder Judiciário TO', logo: '/clients/poder-judiciario-to.png' },
+  { name: 'FAPDF', logo: '/clients/fapdf.png' },
+  { name: 'TRT 16ª Região', logo: '/clients/trt16.png' },
+  { name: 'ADAPEC', logo: '/clients/adapec.png' },
 ]
 
 const testimonials = [
@@ -27,7 +28,19 @@ const testimonials = [
   },
 ]
 
+const VISIBLE = 3
+
 export default function Clients() {
+  const [startIndex, setStartIndex] = useState(0)
+
+  const canPrev = startIndex > 0
+  const canNext = startIndex + VISIBLE < clients.length
+
+  const prev = () => { if (canPrev) setStartIndex(i => i - 1) }
+  const next = () => { if (canNext) setStartIndex(i => i + 1) }
+
+  const visibleClients = clients.slice(startIndex, startIndex + VISIBLE)
+
   return (
     <section className="clients section section-gray" id="clientes">
       <div className="container">
@@ -42,13 +55,36 @@ export default function Clients() {
           </p>
         </div>
 
-        <div className="clients__logos">
-          {clients.map((c, i) => (
-            <div key={i} className="clients__logo-card">
-              <span className="clients__logo-name">{c.name}</span>
-              <span className="clients__logo-sub">{c.sub}</span>
-            </div>
-          ))}
+        <div className="clients__carousel">
+          <button
+            className="clients__arrow"
+            onClick={prev}
+            disabled={!canPrev}
+            aria-label="Anterior"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="15 18 9 12 15 6" />
+            </svg>
+          </button>
+
+          <div className="clients__logos">
+            {visibleClients.map((c, i) => (
+              <div key={startIndex + i} className="clients__logo-card">
+                <img src={c.logo} alt={c.name} className="clients__logo-img" />
+              </div>
+            ))}
+          </div>
+
+          <button
+            className="clients__arrow"
+            onClick={next}
+            disabled={!canNext}
+            aria-label="Próximo"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="9 18 15 12 9 6" />
+            </svg>
+          </button>
         </div>
 
         <div className="clients__testimonials">
